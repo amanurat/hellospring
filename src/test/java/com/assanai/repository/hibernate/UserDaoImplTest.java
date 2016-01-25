@@ -12,7 +12,7 @@ import org.springframework.transaction.annotation.Transactional;
  * Created by amanurat on 12/27/2015 AD.
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = "classpath:test-context-annotation.xml")
+@ContextConfiguration(locations = "classpath:spring/test-context-annotation.xml")
 @Transactional
 public class UserDaoImplTest {
 

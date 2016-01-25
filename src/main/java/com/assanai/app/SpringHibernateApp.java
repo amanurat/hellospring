@@ -11,7 +11,7 @@ import java.util.List;
  */
 public class SpringHibernateApp {
     public static void main(String[] args) {
-        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("classpath:test-context-annotation.xml");
+        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("classpath:spring/test-context-annotation.xml");
 
         ContactDao contactDao = context.getBean(ContactDao.class);
 

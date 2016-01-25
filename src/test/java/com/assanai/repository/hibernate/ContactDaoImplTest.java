@@ -15,13 +15,12 @@ import java.util.List;
 import java.util.Set;
 
 import static org.junit.Assert.assertNotNull;
-import static org.springframework.test.util.AssertionErrors.assertEquals;
 
 /**
  * Created by amanurat on 1/3/2016 AD.
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = "classpath:test-context-annotation.xml")
+@ContextConfiguration(locations = "classpath:spring/test-context-annotation.xml")
 @Transactional
 public class ContactDaoImplTest {
 
