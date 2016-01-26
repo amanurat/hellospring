@@ -5,26 +5,28 @@ import org.hibernate.validator.constraints.NotEmpty;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 /**
  * Created by amanurat on 12/26/2015 AD.
  */
 @Entity
+@Table(name = "user")
 public class User {
 
     @Id
-    @Column(name = "ID")
+    @Column(name = "id")
     private Long id;
 
-    @Column(name = "FIRST_NAME")
+    @Column(name = "first_name")
     @NotEmpty
     private String firstName;
 
-    @Column(name = "LAST_NAME")
+    @Column(name = "last_name")
     @NotEmpty
     private String lastName;
 
-    @Column(name = "EMAIL")
+    @Column(name = "email")
     private String email;
 
 

@@ -21,18 +21,22 @@ public class UserDaoImpl implements UserDao {
     public User findOne(Long id) {
         return null;
     }
+
     //Todo implement
     public List<User> findAll() {
         return null;
     }
+
     //Todo implement
     public Serializable create(User user) {
         return null;
     }
+
     //Todo implement
     public void update(User user) {
 
     }
+
     //Todo implement
     public void delete(User user) {
 
