@@ -9,9 +9,10 @@ import java.util.List;
  * Created by amanurat on 1/3/2016 AD.
  */
 public interface ContactDao {
-    java.util.List<Contact> findAll();
+    Contact findOne(Long id);
+    List findAll();
     List<Contact> findAllWithDetail();
-    Contact findById(Long id);
-    Serializable save(Contact contact);
+    Serializable create(Contact contact);
+    void update(Contact contact);
     void delete(Contact contact);
 }

@@ -8,7 +8,12 @@ import com.assanai.domain.Account;
 public interface AccountDao {
     Account findOne(long id);
 
+    String findOwnerNameById(Long id);
+
+    //Using NamedParameterJdbcTemplate with SqlParameterSource
+    Long countAccountByBalance(int balance);
+
     void delete(long accountId);
 
-    int insert(Account account);
+    int create(Account account);
 }

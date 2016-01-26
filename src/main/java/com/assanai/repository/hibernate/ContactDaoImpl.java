@@ -20,6 +20,10 @@ public class ContactDaoImpl implements ContactDao {
     @Autowired
     private SessionFactory sessionFactory;
 
+    public Contact findOne(Long id) {
+        return (Contact) sessionFactory.getCurrentSession().load(Contact.class, id);
+    }
+
     public List<Contact> findAll() {
         return sessionFactory.getCurrentSession().createQuery("from Contact c").list();
     }
@@ -28,12 +32,11 @@ public class ContactDaoImpl implements ContactDao {
         return sessionFactory.getCurrentSession().createQuery("from Contact c left join fetch c.contactTelDetails").list();
     }
 
-    public Contact findById(Long id) {
-        return (Contact) sessionFactory.getCurrentSession().load(Contact.class, id);
-    }
-
-    public Serializable save(Contact contact) {
+    public Serializable create(Contact contact) {
         return sessionFactory.getCurrentSession().save(contact);
+    }
+    public void update(Contact contact) {
+        sessionFactory.getCurrentSession().update(contact);
     }
 
     public void delete(Contact contact) {

@@ -1,6 +1,7 @@
 package com.assanai.repository.jdbc;
 
 import com.assanai.domain.Account;
+import org.hamcrest.CoreMatchers;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +11,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.transaction.annotation.Transactional;
 
 import static org.hamcrest.CoreMatchers.not;
+import static org.hamcrest.CoreMatchers.notNullValue;
 import static org.hamcrest.CoreMatchers.nullValue;
 import static org.hamcrest.core.Is.is;
 import static org.hamcrest.core.IsEqual.equalTo;
@@ -19,7 +21,7 @@ import static org.junit.Assert.*;
  * Created by amanurat on 12/27/2015 AD.
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = "classpath:/spring/test-context-annotation.xml")
+@ContextConfiguration(locations = "classpath:context/application-context.xml")
 @Transactional
 public class AccountJdbcDaoImplTest {
 
@@ -34,6 +36,23 @@ public class AccountJdbcDaoImplTest {
 
         assertThat(account, not(nullValue()));
         assertThat(account.getOwnerName(), is(equalTo("John")));
+
+    }
+
+    @Test
+    public void findOwnerNameByIdShouldFound() throws Exception {
+        String names = accountDao.findOwnerNameById(1l);
+
+        assertThat(names, is(notNullValue()));
+        assertThat(names, is(CoreMatchers.equalTo("John")));
+
+    }
+
+    @Test
+    public void countAccountByBalanceShouldFound() throws Exception {
+
+        Long count = accountDao.countAccountByBalance(1000);
+        System.out.println(count);
 
     }
 
