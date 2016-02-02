@@ -9,9 +9,8 @@ import org.springframework.web.context.WebApplicationContext;
  * Created by amanurat on 1/19/2016 AD.
  */
 @Component
-@Scope(value = WebApplicationContext.SCOPE_REQUEST, proxyMode = ScopedProxyMode.TARGET_CLASS)
+@Scope(value = WebApplicationContext.SCOPE_REQUEST, proxyMode = ScopedProxyMode.INTERFACES)
 public class ShoppingCart implements Shopping {
-
     int balance = 0;
     public void add() {
 

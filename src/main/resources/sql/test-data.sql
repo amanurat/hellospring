@@ -1,4 +1,5 @@
-insert into account (id, owner_name, balance, access_time, locked) values (1, 'John', 100, now(), 1);
+insert into account (id, owner_name, balance, access_time, locked) values (1, 'John', 100, now(), 0);
+insert into account (id, owner_name, balance, access_time, locked) values (2, 'Sara', 200, now(), 1);
 
 
 insert into contact (first_name, last_name, birth_date) values ('Chris', 'Schaefer', '1981-05-03');

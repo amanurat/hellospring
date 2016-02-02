@@ -1,8 +1,5 @@
 package com.assanai.controller;
 
-import com.assanai.service.ShoppingCartService;
-import org.springframework.aop.scope.ScopedProxyFactoryBean;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.context.annotation.ScopedProxyMode;
 import org.springframework.stereotype.Controller;
@@ -14,9 +11,8 @@ import org.springframework.web.context.WebApplicationContext;
  * Created by amanurat on 1/19/2016 AD.
  */
 @Controller
-//@Scope(value = WebApplicationContext.SCOPE_REQUEST, proxyMode = ScopedProxyMode.TARGET_CLASS)
-@Scope(value = WebApplicationContext.SCOPE_REQUEST)
-public class ShoppingCartController {
+@Scope(value = WebApplicationContext.SCOPE_REQUEST, proxyMode = ScopedProxyMode.TARGET_CLASS)
+public class RequestScopeController {
 
     private int increment = 0;
 
