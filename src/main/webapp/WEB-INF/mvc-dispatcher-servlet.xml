@@ -27,15 +27,20 @@
 
     <!-- Message Resource Config -->
     <bean id="messageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
-        <property name="basenames" value="classpath:i18n/messages, classpath:i18n/ValidationMessages"></property>
-        <property name="defaultEncoding" value="UTF-8"></property>
+        <property name="basenames" value="classpath:i18n/messages, classpath:i18n/ValidationMessages"/>
+        <property name="defaultEncoding" value="UTF-8"/>
         <!--<property name="cacheSeconds" value="10"/>-->
     </bean>
 
     <!-- Declare the Resolver -->
     <bean id="localeResolver" class="org.springframework.web.servlet.i18n.SessionLocaleResolver">
         <property name="defaultLocale" value="en" />
+
     </bean>
+
+    <mvc:interceptors>
+        <ref bean="siteInterceptor"/>
+    </mvc:interceptors>
 
     <!-- Declare the LocaleChangeInterceptor-->
     <mvc:interceptors>
@@ -43,6 +48,7 @@
             <mvc:mapping path="/**" />
             <bean id="localeChangeInterceptor" class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor">
                 <property name="paramName" value="lang" />
+
             </bean>
         </mvc:interceptor>
     </mvc:interceptors>
