@@ -15,6 +15,10 @@
         http://www.springframework.org/schema/context
         http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
 
+    <context:annotation-config/>
+    <context:component-scan base-package="com.assanai"/>
+
+
 
     <!-- PropertyPlaceholder Config-->
     <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
@@ -42,7 +46,7 @@
     <bean id="sessionFactory"
           class="org.springframework.orm.hibernate4.LocalSessionFactoryBean"
           p:dataSource-ref="dataSource"
-          p:packagesToScan="com.assanai.domain"
+          p:packagesToScan="com.assanai.spring.mvc.domain"
           p:hibernateProperties-ref="hibernateProperties"/>
 
     <util:properties id="hibernateProperties">
@@ -58,10 +62,10 @@
 
     <bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
         <property name="dataSource" ref="dataSource"/>
-        <property name="packagesToScan" value="com.assanai"/>
+        <property name="packagesToScan" value="com.assanai.spring.mvc.domain"/>
         <property name="jpaProperties">
             <props>
-                <prop key="hibernate.hbm2ddl.auto">create</prop>
+                <!--<prop key="hibernate.hbm2ddl.auto">none</prop>-->
                 <!--<prop key="hibernate.ejb.naming_strategy">com.amanurat.CustomHibernateNamingStrategy</prop>-->
             </props>
         </property>
@@ -74,7 +78,7 @@
         </property>
     </bean>
 
-    <bean id="jPaTransactionManager"
+    <bean id="jpaTransactionManager"
           class="org.springframework.orm.jpa.JpaTransactionManager"
           p:entityManagerFactory-ref="entityManagerFactory"/>
 
