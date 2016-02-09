@@ -1,11 +1,10 @@
 package com.assanai.spring.mvc.rest;
 
-import com.assanai.spring.mvc.controller.exception.UserNotFoundException;
+import com.assanai.spring.mvc.exception.UserNotFoundException;
 import com.assanai.spring.mvc.domain.User;
-import com.assanai.spring.mvc.repository.jpa.UserRepository;
+import com.assanai.spring.mvc.repository.hibernate.UserRepository;
 import com.assanai.spring.mvc.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;

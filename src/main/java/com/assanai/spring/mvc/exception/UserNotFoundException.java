@@ -1,4 +1,4 @@
-package com.assanai.spring.mvc.controller.exception;
+package com.assanai.spring.mvc.exception;
 
 /**
  * Created by amanurat on 12/16/2015 AD.

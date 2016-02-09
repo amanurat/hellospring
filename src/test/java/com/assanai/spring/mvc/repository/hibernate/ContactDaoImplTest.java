@@ -3,6 +3,7 @@ package com.assanai.spring.mvc.repository.hibernate;
 import com.assanai.spring.mvc.domain.Contact;
 import com.assanai.spring.mvc.domain.ContactTelDetail;
 import com.assanai.spring.mvc.domain.Hobby;
+import org.hibernate.ObjectNotFoundException;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -15,6 +16,7 @@ import java.util.List;
 import java.util.Set;
 
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.fail;
 
 /**
  * Created by amanurat on 1/3/2016 AD.
@@ -75,11 +77,18 @@ public class ContactDaoImplTest {
     }
 
     @Test
-    public void testFindById() throws Exception {
+    public void testFindOneShouldFound() throws Exception {
 
         Contact contact = contactDao.findOne(1l);
         System.out.println(contact.getFirstName());
         assertNotNull(contact);
+    }
+    @Test(expected = ObjectNotFoundException.class)
+    public void testFindOneShouldThrowException() throws Exception {
+
+        Contact contact = contactDao.findOne(5l);
+        fail("should be throw ObjectNotFoundException");
+
     }
 
 //    @Test

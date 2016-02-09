@@ -1,6 +1,6 @@
 package com.assanai.spring.mvc.controller.advice;
 
-import com.assanai.spring.mvc.controller.exception.UserNotFoundException;
+import com.assanai.spring.mvc.exception.UserNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
  * Created by amanurat on 12/16/2015 AD.
  */
 @ControllerAdvice
-public class UserNotFoundMapper {
+public class UserNotFoundMapperController {
 
 
 

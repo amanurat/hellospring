@@ -1,6 +1,6 @@
 package com.assanai.spring.mvc.service;
 
-import com.assanai.spring.mvc.controller.exception.UserNotFoundException;
+import com.assanai.spring.mvc.exception.UserNotFoundException;
 import com.assanai.spring.mvc.domain.User;
 import org.springframework.transaction.annotation.Transactional;
 

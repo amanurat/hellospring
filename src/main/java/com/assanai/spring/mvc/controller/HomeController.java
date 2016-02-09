@@ -18,7 +18,7 @@ public class HomeController {
 
     static private Logger LOGGER = LoggerFactory.getLogger(HomeController.class);
 
-    @RequestMapping(value = {"/home","/*", "/index"}, method = RequestMethod.GET)
+    @RequestMapping(value = {"/home","/", "/index"}, method = RequestMethod.GET)
     public String home(Model model) {
         LOGGER.info("welcome to home controller...");
 

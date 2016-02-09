@@ -1,6 +1,8 @@
-package com.assanai.spring.mvc.repository.jpa;
+package com.assanai.spring.mvc.repository.hibernate;
 
 import com.assanai.spring.mvc.domain.UserRole;
+import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
@@ -13,15 +15,14 @@ import java.util.List;
 //@Repository
 public class UserRoleRepository {
 
-//    @PersistenceContext
-    private EntityManager entityManager;
-
+    @Autowired
+    private SessionFactory sessionFactory;
 
     public UserRole findById(Integer id) {
-        return entityManager.find(UserRole.class, id);
+        return (UserRole) sessionFactory.getCurrentSession().get(UserRole.class, id);
     }
 
     public List<UserRole> findAll() {
-        return entityManager.createQuery("from UserRole").getResultList();
+        return sessionFactory.getCurrentSession().createQuery("from UserRole").list();
     }
 }

@@ -8,7 +8,7 @@
         </excludes>
     </decorator>
 
-    <decorator name="basic-login" page="login-theme.jsp">
+    <decorator name="login-theme.jsp" page="login-theme.jsp">
         <pattern>/*login*</pattern>
     </decorator>
 

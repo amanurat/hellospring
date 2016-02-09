@@ -17,12 +17,12 @@ import org.springframework.transaction.annotation.Transactional;
 
 
 
-//** get configuration under /WEB-INF folder with anti-pattern
+//configuration under /WEB-INF folder with anti-pattern
 //@ContextConfiguration(locations = {
 //        "classpath:context/**/*-context.xml",
 //})
 
-//** get configuration from source file
+//configuration from source file
 //@ContextConfiguration(
 //        locations = {
 //                "file:src/main/webapp/WEB-INF/spring/test-context-annotation.xml",

@@ -33,16 +33,18 @@
 	<authentication-manager>
 		<authentication-provider>
             <!-- Authenticated in Memory-->
-			<!--<user-service>
+			<user-service>
 				<user name="user" password="user" authorities="ROLE_USER" />
 				<user name="admin" password="admin" authorities="ROLE_USER,ROLE_ADMIN" />
-			</user-service>-->
+			</user-service>
 
             <!-- Authenticated by Jdbc Datasource-->
-        <jdbc-user-service data-source-ref="dataSource"
+       <!-- <jdbc-user-service data-source-ref="dataSource"
                            users-by-username-query="SELECT USERNAME, PASSWORD, 1 FROM USERS WHERE USERNAME=?"
                            authorities-by-username-query="SELECT U.USERNAME, R.ROLE FROM USERS U, USER_ROLES R WHERE U.USER_ROLE = R.ID AND U.USERNAME =?" />
+		-->
 		</authentication-provider>
+
 	</authentication-manager>
 
 

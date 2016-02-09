@@ -1,4 +1,4 @@
-package com.assanai.spring.mvc.repository.jpa;
+package com.assanai.spring.mvc.repository.hibernate;
 
 import com.assanai.spring.mvc.domain.User;
 import org.hibernate.SessionFactory;
@@ -12,40 +12,36 @@ import java.util.List;
 @Repository
 public class UserRepository {
 
-    @PersistenceContext
-    private EntityManager entityManager;
-
 
     @Autowired
     private SessionFactory sessionFactory;
 
 
     public User findById(Integer id) {
-        return entityManager.find(User.class, id);
+        return (User) sessionFactory.getCurrentSession().get(User.class, id);
     }
 
 
     public List<User> findAll() {
-        return entityManager.createQuery("from User").getResultList();
+        return sessionFactory.getCurrentSession().createQuery("from User").list();
     }
 
     public void create(User user) {
-//        entityManager.persist(user);
         sessionFactory.getCurrentSession().save(user);
     }
 
     public void update(User user) {
-        entityManager.merge(user);
-
+        sessionFactory.getCurrentSession().update(user);
     }
 
     public void delete(User user) {
-        User newEntity = entityManager.getReference(User.class, user.getId());
-        entityManager.remove(newEntity);
+        sessionFactory.getCurrentSession().delete(user);
     }
 
     public void delete(Integer id) {
-        User newEntity = entityManager.getReference(User.class, id);
-        entityManager.remove(newEntity);
+        User user = (User) sessionFactory.getCurrentSession().get(User.class, id);
+        if (user != null) {
+            sessionFactory.getCurrentSession().delete(user);
+        }
     }
 }

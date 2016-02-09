@@ -8,9 +8,9 @@
 	</appender>
 
 	<logger name="com.assanai" level="debug" />
-	<logger name="org.hibernate" level="debug" />
-	<logger name="org.springframework" level="debug" />
-	<logger name="org.springframework.transaction" level="debug" />
+	<logger name="org.hibernate" level="warn" />
+	<logger name="org.springframework" level="info" />
+	<logger name="org.springframework.transaction" level="info" />
 
 	<!-- in order to debug some marshalling issues, this needs to be TRACE -->
 	<logger name="org.springframework.web.servlet.mvc" level="debug" />
