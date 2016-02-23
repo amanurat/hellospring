@@ -1,4 +1,4 @@
-package com.assanai.spring.core.javaconfig;
+package com.assanai.spring.core.webconfig;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;

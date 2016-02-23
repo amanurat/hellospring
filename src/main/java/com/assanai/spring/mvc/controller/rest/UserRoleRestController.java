@@ -1,8 +1,9 @@
-package com.assanai.spring.mvc.rest;
+package com.assanai.spring.mvc.controller.rest;
 
 import com.assanai.spring.mvc.domain.UserRole;
 import com.assanai.spring.mvc.repository.hibernate.UserRoleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -12,8 +13,8 @@ import java.util.List;
 /**
  * Created by amanurat on 12/15/2015 AD.
  */
-//@Controller
-public class UserRoleResource {
+@Controller
+public class UserRoleRestController {
 
     @Autowired
     private UserRoleRepository userRoleRepository;

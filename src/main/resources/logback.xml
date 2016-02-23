@@ -7,15 +7,15 @@
 		</encoder>
 	</appender>
 
-	<logger name="com.assanai" level="debug" />
-	<logger name="org.hibernate" level="warn" />
-	<logger name="org.springframework" level="info" />
-	<logger name="org.springframework.transaction" level="info" />
+	<logger name="com.assanai" level="trace" />
+	<logger name="org.hibernate" level="trace" />
+	<logger name="org.springframework" level="trace" />
+	<logger name="org.springframework.transaction" level="trace" />
 
 	<!-- in order to debug some marshalling issues, this needs to be TRACE -->
-	<logger name="org.springframework.web.servlet.mvc" level="debug" />
+	<logger name="org.springframework.web.servlet.mvc" level="trace" />
 
-	<root level="debug">
+	<root level="trace">
 		<appender-ref ref="STDOUT" />
 	</root>
 

@@ -11,6 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 @Service
+@Transactional(readOnly = true)
 public class UserServiceImpl implements UserService {
 
     @Autowired
@@ -32,22 +33,34 @@ public class UserServiceImpl implements UserService {
         return userRepository.findAll();
     }
 
-//    @Transactional(transactionManager = "jpaTransactionManager")
+    //    @Transactional(transactionManager = "jpaTransactionManager")
     @Transactional
     public void create(User user) {
         userRepository.create(user);
     }
 
-    @Transactional
+    @Transactional(readOnly = false)
     public void update(User user) {
-        userRepository.update(user);
+
+        User domain = userRepository.findById(user.getId());
+
+        if (domain == null) {
+            throw new RuntimeException("Cannot find user : " + user.getId());
+        }
+        domain.setUserName(user.getUserName());
+        domain.setPassword(user.getPassword());
+
+
+        userRepository.update(domain);
     }
 
-    @Transactional
+    @Transactional(readOnly = false)
     public void delete(User user) {
+
         userRepository.delete(user);
     }
-    @Transactional
+
+    @Transactional(readOnly = false)
     public void delete(Integer id) {
         userRepository.delete(id);
     }

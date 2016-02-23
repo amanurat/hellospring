@@ -16,13 +16,12 @@
         http://www.springframework.org/schema/context
         http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
 
+    <context:annotation-config/>
+    <context:component-scan base-package="com.assanai.spring.mvc"/>
 
     <mvc:resources mapping="/static/**" location="/static/"/>
 
     <mvc:annotation-driven/>
-    <context:annotation-config/>
-    <context:component-scan base-package="com.assanai"/>
-    <tx:annotation-driven transaction-manager="transactionManager"/>
 
     <mvc:view-controller path="/login" view-name="login"/>
     <mvc:view-controller path="/" view-name="/index"/>
@@ -30,6 +29,7 @@
     <mvc:view-controller path="/public" view-name="/public"/>
     <mvc:view-controller path="/private" view-name="/private"/>
     <mvc:view-controller path="/admin" view-name="/admin"/>
+    <mvc:view-controller path="/ajax" view-name="/ajax/ajax"/>
 
     <mvc:view-controller path="/errors/404" view-name="/errors/404"/>
     <mvc:view-controller path="/errors/403" view-name="/errors/403"/>
@@ -54,6 +54,23 @@
         <property name="defaultLocale" value="en" />
 
     </bean>
+
+
+
+    <!-- Configure to plugin JSON as request and response in method handler -->
+    <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">
+        <property name="messageConverters">
+            <list>
+                <ref bean="jsonMessageConverter"/>
+            </list>
+        </property>
+    </bean>
+
+    <!-- Configure bean to convert JSON to POJO and vice versa -->
+    <bean id="jsonMessageConverter" class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
+    </bean>
+
+
 
     <!-- Registers an interceptor that intercepts every request regardless of its URI path-->
     <!--<mvc:interceptors>

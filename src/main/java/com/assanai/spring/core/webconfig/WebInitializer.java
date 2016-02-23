@@ -1,4 +1,4 @@
-package com.assanai.spring.core.javaconfig;
+package com.assanai.spring.core.webconfig;
 
 import org.springframework.web.WebApplicationInitializer;
 import org.springframework.web.context.support.AnnotationConfigWebApplicationContext;
@@ -15,7 +15,7 @@ public class WebInitializer implements WebApplicationInitializer {
 	/*public void onStartup(ServletContext servletContext) throws ServletException {
 		
 		AnnotationConfigWebApplicationContext context = new AnnotationConfigWebApplicationContext();
-		context.register(JavaConfig.class);  		
+		context.register(WebConfig.class);
 		context.setServletContext(servletContext); 
 		ServletRegistration.Dynamic servlet = servletContext.addServlet("DispatcherServlet", new DispatcherServlet(context));
 		servlet.addMapping("/");

@@ -1,4 +1,4 @@
-package com.assanai.spring.mvc.controller.advice;
+package com.assanai.spring.mvc.controller;
 
 import com.assanai.spring.mvc.exception.UserNotFoundException;
 import org.springframework.http.HttpStatus;

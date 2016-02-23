@@ -1,16 +1,23 @@
 package com.assanai.spring.mvc.domain;
 
-import org.codehaus.jackson.annotate.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.ser.std.DateSerializer;
 import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import javax.validation.constraints.Size;
+import java.io.Serializable;
 import java.util.Date;
 
 @Entity
 @Table(name = "USERS")
-public class User extends AbstractEntity {
+public class User extends AbstractEntity implements Serializable {
+
+    private Integer id;
+
+
 
     enum GenderEnum {
         MALE("Male"), FEMALE("Female");
@@ -19,6 +26,14 @@ public class User extends AbstractEntity {
         private GenderEnum(String gender) {
             this.gender = gender;
         }
+    }
+
+    public User() {
+    }
+
+    public User(String userName, String password) {
+        this.userName = userName;
+        this.password = password;
     }
 
     @Column(name = "USERNAME")
@@ -38,6 +53,7 @@ public class User extends AbstractEntity {
     @Column(name = "BIRTHDAY")
     @Temporal(value = TemporalType.TIMESTAMP)
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
+    @JsonSerialize(using=DateSerializer.class)
     private Date birthDay;
 
 
@@ -85,6 +101,16 @@ public class User extends AbstractEntity {
 
     public void setUserRole(UserRole userRole) {
         this.userRole = userRole;
+    }
+
+    @Override
+    public Integer getId() {
+        return id;
+    }
+
+    @Override
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     @Override

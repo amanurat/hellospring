@@ -12,7 +12,7 @@ import java.util.List;
 /**
  * Created by amanurat on 12/15/2015 AD.
  */
-//@Repository
+@Repository
 public class UserRoleRepository {
 
     @Autowired
