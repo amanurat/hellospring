@@ -1,6 +1,6 @@
 package com.assanai.application;
 
-import com.assanai.spring.core.bean.AnotherBean;
+import com.assanai.spring.core.bean.annotation.AnotherBean;
 import com.assanai.spring.core.config.JavaConfig;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;

@@ -1,12 +1,12 @@
-package com.assanai.spring.core.bean;
+package com.assanai.spring.core.bean.annotation;
  
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
  
-@Component(value="myBean")
+@Component
 public class MyBean {
  
-    private String name;
+    private String name = "default";
  
     public String getName() {
         return name;

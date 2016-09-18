@@ -12,7 +12,7 @@ import org.springframework.transaction.annotation.Transactional;
 @RunWith(SpringJUnit4ClassRunner.class)
 
 @ContextConfiguration(locations = {
-        "classpath:context/**/*-context.xml",
+        "classpath:/**/*-context.xml",
 })
 
 
